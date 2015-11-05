@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block body %}
-<h2>List of Cereal color=green</h2>
+<h2></h2>
 {% for cereal in cereal_objects %}
+<p>
+<a class='cereal-names' href="/detail_view/{{ cereal.pk }}/">{{ cereal.name }}</a> | <a class='cereal-names' href="/delete_view/{{ cereal.pk}}/">Delete</a>
 
-<a href="/detail_view/{{ cereal.pk }}/">{{ cereal.name }}</a> | <a href="/delete_view/{{ cereal.pk}}/">Delete</a>
-<br>
+</p>
 {% endfor %}
 
 {% endblock %}

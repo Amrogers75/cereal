@@ -1,11 +1,60 @@
+{% comment %}
 {% extends 'base.html' %}
+{% endcomment %}
+
+{% load staticfiles %}
 
 {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+               <a href="/create_view2/"><h1>Manufacturer: {{ cereal_object.manufacturer }}</h1></a>
+               <a href="/list_view/"><h2>Cereal: {{ cereal_object.name }}</h2></a>
+               <a href="/list_view/"><h2>Calories: {{ cereal_object.calories }}</h2></a>
+               <a href="/list_view/"><h2>Protein: {{ cereal_object.protein }}</h2></a>
+               <a href="/list_view/"><h2>Fat: {{ cereal_object.fat }}</h2></a>
+               <a href="/list_view/"><h2>Sodium: {{ cereal_object.sodium }}</h2></a>
+               <a href="/list_view/"><h2>Dietary_Fiber: {{ cereal_object.dietary_fiber }}</h2></a>
+               <a href="/list_view/"><h2>Carbs: {{ cereal_object.carbs }}</h2></a>
+               <a href="/list_view/"><h2>Sugars: {{ cereal_object.sugars }}</h2></a>
+               <a href="/list_view/"><h2>Display_Shelf: {{ cereal_object.display_shelf }}</h2></a>
+               <a href="/list_view/"><h2>Potassium: {{ cereal_object.Potassium }}</h2></a>
+               <a href="/list_view/"><h2>Vitamins_and_Minerals: {{ cereal_object.vitamins_and_minerals }}</h2></a>
+               <a href="/list_view/"><h2>Serving_Size_Weight: {{ cereal_object.serving_size_weight }}</h2></a>
+               <a href="/list_view/"><h2>Cups_per_Serving: {{ cereal_object.cups_per_serving }}</h2></a>
+               <a href="/list_view/"><h2>Carbs: {{ cereal_object.carbs }}</h2></a>
+            </div>
+        </div>
 
+<!-- Below is what is passed through the context -->
+        <div class="row">
+            <div class="col-md-6">
+                   <a href="/list_view/"><h2>Cereal: {{ cereal_object.name }}</h2></a>
+                   <a href="/list_view/"><h2>Calories: {{ cereal_object.calories }}</h2></a>
+                   <a href="/list_view/"><h2>Protein: {{ cereal_object.protein }}</h2></a>
+                   <a href="/list_view/"><h2>Fat: {{ cereal_object.fat }}</h2></a>
+                   <a href="/list_view/"><h2>Sodium: {{ cereal_object.sodium }}</h2></a>
+                   <a href="/list_view/"><h2>Dietary_Fiber: {{ cereal_object.dietary_fiber }}</h2></a>
+                   <a href="/list_view/"><h2>Carbs: {{ cereal_object.carbs }}</h2></a>
+                   <a href="/list_view/"><h2>Sugars: {{ cereal_object.sugars }}</h2></a>
+                   <a href="/list_view/"><h2>Display_Shelf: {{ cereal_object.display_shelf }}</h2></a>
+                   <a href="/list_view/"><h2>Potassium: {{ cereal_object.Potassium }}</h2></a>
+                   <a href="/list_view/"><h2>Vitamins_and_Minerals: {{ cereal_object.vitamins_and_minerals }}</h2></a>
+                   <a href="/list_view/"><h2>Serving_Size_Weight: {{ cereal_object.serving_size_weight }}</h2></a>
+                   <a href="/list_view/"><h2>Cups_per_Serving: {{ cereal_object.cups_per_serving }}</h2></a>
+                   <a href="/list_view/"><h2>Carbs: {{ cereal_object.carbs }}</h2></a>
+            </div>    
+        </div>         
+        
+    </div>
+{% endblock %}
+
+
+
+{% comment %}
 {{ cereal_object.title }}
 <br>  
 {{ cereal_object.info }}
 <br>  
 {{ cereal_object.image }}
-
-{% endblock %}
+{% endcomment %}

@@ -1,5 +1,8 @@
-from main.models import Cereal, Manufacturer 
+from main.models import Cereal, Manufacturer
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, HTML, Layout, Div
+from crispy_forms.bootstrap import FormActions
 
 
 class CerealForm(forms.ModelForm):
@@ -47,4 +50,25 @@ class CerealForm2(forms.Form):
 # #class UserSignUp(forms.Form):
 #     email = forms.EmailField(required=True)
 #     password = forms.CharField(widget=forms.PasswordInput(), required=True)
+
+class ContactForm(forms.Form):
+    name = forms.CharField(required=True)
+    email = forms.CharField(required=True)
+    phone = forms.CharField(required=True)
+    message = forms.CharField(required=True, widget=forms.Textarea)
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = '/concat_view/'
+        self.helper.layout = Layout(
+                Div('name', 'email', 'phone', css_class='col-md-6'),
+                Div('message', css_class='col-md-6')
+            )
+        self.helper.layout.append(
+            FormActions(
+                Submit('submit', 'Submit', css_class="btn-primary")
+               )
+            )
+
 

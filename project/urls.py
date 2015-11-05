@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^update_view/(?P<pk>\d+)/$', 'main.views.update_view'),
     # url(r'^delete_view/$', 'main.views.delete_view'),
     url(r'^delete_view/(?P<pk>\d+)/$', 'main.views.delete_view'),
+    
     url(r'^signup/$', 'main.views.signup'),
+    url(r'^contact_view/$', 'main.views.contact_view')
 ]
 

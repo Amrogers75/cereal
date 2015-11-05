@@ -3,7 +3,8 @@ from main.models import Cereal, Manufacturer
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
-from main.forms import CerealForm2
+from main.forms import CerealForm2, ContactForm
+from django.core.mail import send_mail
 # Create your views here.
 
 
@@ -152,4 +153,38 @@ def signup(request):
         context['valid'] = "Please Sign Up!"
 
     return render_to_response('signup.html', context, context_instance=RequestContext(request))
+
+
+def contact_view(request):
+
+    context = {}
+    
+    form = ContactForm
+
+    context['form'] = form
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        context['form'] = form
+        if form.is_valid():
+
+            name = form.cleaned.data['name']
+            email = form.cleaned.data['email']
+            phone = form.cleaned.data['phone']
+            message = form.cleaned.data['message'] 
+            
+            send_mail('CEREAL SITE MESSAGE %s' %
+                        message,
+                        email,
+                        [settings.EMAIL_HOST_USER],
+                        fail_silently=False
+                        )
+            context['message'] = "email sent thank you"
+        else:
+            context['errors'] = forms.errors
+    elif request.method == 'GET':
+        form = ContactForm()
+        context['form'] = form
+
+
+    return render_to_response('contact_view.html', context, context_instance=RequestContext(request))
 

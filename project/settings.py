@@ -109,3 +109,9 @@ static_root = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_HOST = 'smtp-relay.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'amr75code@gmail.com'
+EMAIL_HOST_PASSWORD = 'code2015'
+EMAIL_USE_TLS = True
