@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from main.forms import CerealForm2, ContactForm
 from django.core.mail import send_mail
+from main.models import Cereal
+from main.serializers import CerealSerializer, ManufacturerSerializer
+from rest_framework import generics
+
 # Create your views here.
 
 
@@ -185,6 +189,24 @@ def contact_view(request):
         form = ContactForm()
         context['form'] = form
 
-
     return render_to_response('contact_view.html', context, context_instance=RequestContext(request))
 
+
+class CerealList(generics.ListCreateAPIView):
+    queryset = Cereal.objects.all()
+    serializer_class = CerealSerializer
+
+
+class CerealDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cereal.objects.all()
+    serializer_class = CerealSerializer
+
+
+class ManufacturerList(generics.ListCreateAPIView):
+    queryset = Manufacturer.objects.all()
+    serializer_class = ManufacturerSerializer
+
+
+class ManufacturerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Manufacturer.objects.all()
+    serializer_class = ManufacturerSerializer

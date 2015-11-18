@@ -17,6 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.urlpatterns import format_suffix_patterns
+from main import views
 
 urlpatterns = [
 
@@ -31,6 +33,12 @@ urlpatterns = [
     url(r'^delete_view/(?P<pk>\d+)/$', 'main.views.delete_view'),
     
     url(r'^signup/$', 'main.views.signup'),
-    url(r'^contact_view/$', 'main.views.contact_view')
+    url(r'^contact_view/$', 'main.views.contact_view'),
+
+    # url(r'^', include('snippets.urls')),
+    url(r'^cereal/$', views.CerealList.as_view()),
+    url(r'^cereal/(?P<pk>[0-9]+)/$', views.CerealDetail.as_view()),
+    url(r'^manufacturer/$', views.ManufacturerList.as_view()),
+    url(r'^manufacturer/(?P<pk>[0-9]+)/$', views.ManufacturerDetail.as_view()),
 ]
 
