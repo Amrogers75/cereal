@@ -1,5 +1,5 @@
 .cereal-names {
-    background-color: black;
+    background-color: #;
 }
 
 
@@ -41,14 +41,14 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: #222222;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #fec503;
+    color: #32AE4D;
 }
 
 h1,
